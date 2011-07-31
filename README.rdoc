@@ -16,8 +16,15 @@ A plugin that records the date when the issue is closed and shows it on the issu
 
 = Version 0.0.3 (by Jan Schulz-Hofen, Planio GmbH)
  - Added namespaces to patches and hooks
+ - Refactored view overloads to proper patches
 
 = Get the Stable Version
  - Clone the project
  - run git tag to see a list of available versions
- - run git checkout v0.0.x, to the version choosed
+ - run git checkout v0.0.x, to the preferred version
+ 
+= Installation
+ - Install the plugin
+ - Migrate
+ - Patch app/views/issues/show.rhtml using the patch file in extra/
+ - Patch app/views/issues/show.api.rsb using the patch file in extra/

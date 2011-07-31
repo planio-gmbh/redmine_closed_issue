@@ -1,0 +1,16 @@
+diff --git a/app/views/issues/show.rhtml b/app/views/issues/show.rhtml
+index 619ef79..235881f 100644
+--- a/app/views/issues/show.rhtml
++++ b/app/views/issues/show.rhtml
+@@ -35,7 +35,11 @@
+ <table class="attributes">
+ <tr>
+     <th class="status"><%=l(:field_status)%>:</th><td class="status"><%= h(@issue.status.name) %></td>
++    <% if @issue.closed_date %>
++    <th class="start-date"><%=l(:field_start_end_date)%>:</th><td class="start-date"><%= format_date(@issue.start_date) %> - <%= format_date(@issue.closed_date) %></td>
++    <% else %>
+     <th class="start-date"><%=l(:field_start_date)%>:</th><td class="start-date"><%= format_date(@issue.start_date) %></td>
++    <% end %>
+ </tr>
+ <tr>
+     <th class="priority"><%=l(:field_priority)%>:</th><td class="priority"><%= h(@issue.priority.name) %></td>
