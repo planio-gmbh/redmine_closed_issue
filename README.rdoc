@@ -14,6 +14,9 @@ A plugin that records the date when the issue is closed and shows it on the issu
  - Closed date is only changed on a status change, and if the status is a final status
  - API request bug fix
 
+= Version 0.0.3 (by Jan Schulz-Hofen, Planio GmbH)
+ - Added namespaces to patches and hooks
+
 = Get the Stable Version
  - Clone the project
  - run git tag to see a list of available versions

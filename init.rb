@@ -1,18 +1,16 @@
 require 'redmine'
 require 'dispatcher'
-require 'query_patch_closed_date'
-require 'close_issue_patch'
-
+require 'redmine_closed_date/hooks'
 
 Redmine::Plugin.register :redmine_redmine_close_issue do
   name 'Redmine Closed Date plugin'
-  author 'Matheus Ashton Silva'
-  description 'A plugin that save the date when the issue is closed, and shows it on issue/show view'
-  version '0.0.1'
-  url 'http://github.com/ashton/redmine_closed_date'
+  author 'Matheus Ashton Silva, Jan Schulz-Hofen (Planio GmbH)'
+  description 'A plugin that saves the date when the issue is closed, and shows it on issue/show view'
+  version '0.0.3'
+  url 'https://github.com/planio-gmbh/redmine_closed_issue'
   author_url 'http://matheusashton.net'
 end
 
 Dispatcher.to_prepare do
-  Query.send( :include, IssueQueryPatch)
+  Query.send( :include, RedmineClosedDate::Patches::IssueQueryPatch) unless Query.include?(RedmineClosedDate::Patches::IssueQueryPatch)
 end
