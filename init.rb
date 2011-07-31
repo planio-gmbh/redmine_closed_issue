@@ -2,7 +2,7 @@ require 'redmine'
 require 'dispatcher'
 require 'redmine_closed_issue/hooks'
 
-Redmine::Plugin.register :redmine_redmine_close_issue do
+Redmine::Plugin.register :redmine_closed_issue do
   name 'Redmine Closed Date plugin'
   author 'Matheus Ashton Silva, Jan Schulz-Hofen (Planio GmbH)'
   description 'A plugin that saves the date when the issue is closed, and shows it on issue/show view'
