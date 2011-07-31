@@ -1,6 +1,6 @@
 require 'redmine'
 require 'dispatcher'
-require 'redmine_closed_date/hooks'
+require 'redmine_closed_issue/hooks'
 
 Redmine::Plugin.register :redmine_redmine_close_issue do
   name 'Redmine Closed Date plugin'
@@ -12,5 +12,5 @@ Redmine::Plugin.register :redmine_redmine_close_issue do
 end
 
 Dispatcher.to_prepare do
-  Query.send( :include, RedmineClosedDate::Patches::IssueQueryPatch) unless Query.include?(RedmineClosedDate::Patches::IssueQueryPatch)
+  Query.send( :include, RedmineClosedIssue::Patches::IssueQueryPatch) unless Query.include?(RedmineClosedIssue::Patches::IssueQueryPatch)
 end

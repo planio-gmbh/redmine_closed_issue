@@ -1,4 +1,4 @@
-module RedmineClosedDate
+module RedmineClosedIssue
   class ControllerHooks < Redmine::Hook::ViewListener
     def controller_issues_new_before_save(context={})
       if context[:issue] and context[:issue].status.is_closed? then

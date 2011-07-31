@@ -1,4 +1,4 @@
-module RedmineClosedDate
+module RedmineClosedIssue
   module Patches
     module IssueQueryPatch
       def self.included(base) # :nodoc:
