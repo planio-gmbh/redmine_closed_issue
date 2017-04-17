@@ -1,6 +1,8 @@
-require 'redmine'
-require 'dispatcher'
 require 'redmine_closed_issue/hooks'
+
+Rails.configuration.to_prepare do
+  Query.send( :include, RedmineClosedIssue::Patches::IssueQueryPatch) unless Query.include?(RedmineClosedIssue::Patches::IssueQueryPatch)
+end
 
 Redmine::Plugin.register :redmine_closed_issue do
   name 'Redmine Closed Date plugin'
@@ -9,8 +11,4 @@ Redmine::Plugin.register :redmine_closed_issue do
   version '0.0.3'
   url 'https://github.com/planio-gmbh/redmine_closed_issue'
   author_url 'http://matheusashton.net'
-end
-
-Dispatcher.to_prepare do
-  Query.send( :include, RedmineClosedIssue::Patches::IssueQueryPatch) unless Query.include?(RedmineClosedIssue::Patches::IssueQueryPatch)
 end
